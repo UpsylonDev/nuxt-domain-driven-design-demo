@@ -6,7 +6,10 @@
       "Bash(git add:*)",
       "Bash(npm install:*)",
       "Bash(npm run test:run:*)",
-      "Bash(npx playwright:*)"
+      "Bash(npx playwright:*)",
+      "Bash(pnpm run dev:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(pnpm run lint:*)"
     ],
     "deny": [],
     "ask": []

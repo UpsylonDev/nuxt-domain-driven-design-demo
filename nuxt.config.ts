@@ -5,6 +5,13 @@ export default defineNuxtConfig({
   extends: ["./domains/users", "./domains/posts"],
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
 
+  imports: {
+    dirs: [
+      'domains/*/composables/**',
+      'domains/*/utils/**'
+    ]
+  },
+
   i18n: {
     locales: [
       {
