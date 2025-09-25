@@ -15,10 +15,10 @@ This project demonstrates core DDD concepts through a modular architecture:
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Start development server
-npm run dev
+pnpm run dev
 
 # Open http://localhost:3000
 ```
@@ -93,16 +93,16 @@ interface Post {
 
 ### Unit Tests (Vitest)
 ```bash
-npm run test                # Run all tests
-npm run test:watch          # Watch mode
-npm run test:coverage       # Coverage report
+pnpm run test                # Run all tests
+pnpm run test:watch          # Watch mode
+pnpm run test:coverage       # Coverage report
 ```
 
 ### E2E Tests (Playwright)
 ```bash
-npm run test:e2e           # Run E2E tests
-npm run test:e2e:ui        # Interactive mode
-npm run test:e2e:report    # View reports
+pnpm run test:e2e           # Run E2E tests
+pnpm run test:e2e:ui        # Interactive mode
+pnpm run test:e2e:report    # View reports
 ```
 
 ## 🛠️ Development
@@ -181,14 +181,14 @@ import { useUsers } from "@/domains/users/composables"
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
-| `npm run generate` | Generate static site |
-| `npm run test` | Run unit tests |
-| `npm run test:e2e` | Run E2E tests |
-| `npm run lint` | Lint code |
-| `npm run typecheck` | Type checking |
+| `pnpm run dev` | Start development server |
+| `pnpm run build` | Build for production |
+| `pnpm run preview` | Preview production build |
+| `pnpm run generate` | Generate static site |
+| `pnpm run test` | Run unit tests |
+| `pnpm run test:e2e` | Run E2E tests |
+| `pnpm run lint` | Lint code |
+| `pnpm run typecheck` | Type checking |
 
 ## 📖 Learning Resources
 

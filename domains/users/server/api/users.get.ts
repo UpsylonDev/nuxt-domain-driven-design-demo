@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import type { User } from "@/domains/users/types";
-export default defineEventHandler(async (event): Promise<User[]> => {
+export default defineEventHandler(async (_event): Promise<User[]> => {
   const users = [];
   const numOfUsers = 50;
 

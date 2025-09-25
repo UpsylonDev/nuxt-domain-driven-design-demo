@@ -5,7 +5,7 @@ import type { Post } from '@/domains/posts/types'
 
 describe('PostCard', () => {
   const mockPost: Post = {
-    id: 1,
+    id: '1',
     title: 'Test Post Title',
     body: 'This is a test post body content.',
     author: {

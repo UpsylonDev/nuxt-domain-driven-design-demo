@@ -14,6 +14,6 @@
         <NuxtLink to="/blog">Blog (Redirects to Posts)</NuxtLink>
       </li>
     </ul>
-    <NuxtPage></NuxtPage>
+    <NuxtPage/>
   </div>
 </template>

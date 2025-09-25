@@ -12,8 +12,8 @@ const switchLanguage = (code: string) => {
     <span class="text-sm text-gray-600">{{ $t('common.language') }}:</span>
     <select
       v-model="locale"
-      @change="switchLanguage($event.target.value)"
       class="border border-gray-300 rounded px-2 py-1 text-sm"
+      @change="switchLanguage($event.target.value)"
     >
       <option
         v-for="availableLocale in locales"

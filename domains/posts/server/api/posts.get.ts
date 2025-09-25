@@ -1,6 +1,6 @@
 import { faker } from "@faker-js/faker";
 import type { Post } from "@/domains/posts/types";
-export default defineEventHandler(async (event): Promise<Post[]> => {
+export default defineEventHandler(async (_event): Promise<Post[]> => {
   const users = await $fetch("/api/users");
   const posts = [];
   const numOfUsers = 50;

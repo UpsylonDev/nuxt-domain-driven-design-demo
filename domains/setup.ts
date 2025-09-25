@@ -8,14 +8,14 @@ global.ref = ref
 global.reactive = reactive
 
 // Mock Nuxt's useState composable for testing
-global.useState = vi.fn((key: string, init?: () => any) => {
+global.useState = vi.fn((key: string, init?: () => unknown) => {
   return {
     value: init ? init() : null
   }
 })
 
 // Mock Nuxt's useFetch composable for testing
-global.useFetch = vi.fn((url: string) => {
+global.useFetch = vi.fn((_url: string) => {
   return {
     data: { value: null },
     pending: { value: false },
@@ -25,6 +25,6 @@ global.useFetch = vi.fn((url: string) => {
 })
 
 // Mock getUserInitials utility function
-global.getUserInitials = vi.fn((user: any) => {
+global.getUserInitials = vi.fn((user: { name: string }) => {
   return user.name.split(' ').map((n: string) => n.charAt(0)).join('').toUpperCase()
 })

@@ -14,18 +14,18 @@ This is a **Domain-Driven Design (DDD)** demonstration project built with Nuxt 4
 
 ## Development Commands
 
-- **Start development server**: `npm run dev` or `pnpm run dev` (runs on http://localhost:3000)
-- **Build for production**: `npm run build` or `pnpm run build`
-- **Preview production build**: `npm run preview` or `pnpm run preview`
-- **Generate static site**: `npm run generate` or `pnpm run generate`
+- **Start development server**: `pnpm run dev` (runs on http://localhost:3000)
+- **Build for production**: `pnpm run build`
+- **Preview production build**: `pnpm run preview`
+- **Generate static site**: `pnpm run generate`
 
 ## Testing Commands
 
 ### Unit Tests (Vitest)
-- **Run tests**: `npm run test` or `npm run test:run` (single run)
-- **Watch mode**: `npm run test:watch` (watch for changes and re-run)
-- **Coverage**: `npm run test:coverage` (generate coverage report)
-- **Coverage watch**: `npm run test:coverage:watch` (coverage in watch mode)
+- **Run tests**: `pnpm run test` or `pnpm run test:run` (single run)
+- **Watch mode**: `pnpm run test:watch` (watch for changes and re-run)
+- **Coverage**: `pnpm run test:coverage` (generate coverage report)
+- **Coverage watch**: `pnpm run test:coverage:watch` (coverage in watch mode)
 
 Vitest is configured for unit testing Vue components and composables with:
 - **Test environment**: happy-dom for DOM simulation
@@ -36,9 +36,9 @@ Vitest is configured for unit testing Vue components and composables with:
 - **Coverage**: V8 provider with HTML/JSON/text reports, 80% thresholds
 
 ### E2E Tests (Playwright)
-- **Run E2E tests**: `npm run test:e2e` (headless mode)
-- **Interactive mode**: `npm run test:e2e:ui` (Playwright UI mode)
-- **View reports**: `npm run test:e2e:report` (HTML test report)
+- **Run E2E tests**: `pnpm run test:e2e` (headless mode)
+- **Interactive mode**: `pnpm run test:e2e:ui` (Playwright UI mode)
+- **View reports**: `pnpm run test:e2e:report` (HTML test report)
 
 Playwright is configured for end-to-end testing with:
 - **Multiple browsers**: Chromium, Firefox, WebKit, Mobile Chrome/Safari
