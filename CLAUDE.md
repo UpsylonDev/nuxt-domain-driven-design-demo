@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Nuxt 3 application demonstrating Domain-Driven Design (DDD) architecture using Nuxt Layers. The project showcases how to organize code into discrete domains while maintaining modularity and separation of concerns.
+This is a Nuxt 4 application demonstrating Domain-Driven Design (DDD) architecture using Nuxt Layers. The project showcases how to organize code into discrete domains while maintaining modularity and separation of concerns.
 
 ## Development Commands
 
@@ -54,7 +54,7 @@ Domains can reference each other through type imports:
 
 ## Technology Stack
 
-- **Framework**: Nuxt 3.11.2
+- **Framework**: Nuxt 4.1.2
 - **Styling**: Tailwind CSS (@nuxtjs/tailwindcss)
 - **Dev Tools**: Nuxt DevTools enabled
 - **Data Generation**: @faker-js/faker for mock data
