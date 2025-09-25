@@ -6,7 +6,7 @@ export default defineEventHandler(async (_event): Promise<User[]> => {
 
   for (let index = 0; index < numOfUsers; index++) {
     users.push({
-      username: faker.internet.userName(),
+      username: faker.internet.username(),
       name: faker.person.fullName(),
       email: faker.internet.email(),
     });

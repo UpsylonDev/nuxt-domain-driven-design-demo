@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: '2025-09-25',
   devtools: { enabled: true },
   extends: ["./domains/users", "./domains/posts"],
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
