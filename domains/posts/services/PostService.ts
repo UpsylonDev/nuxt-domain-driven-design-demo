@@ -1,4 +1,4 @@
-import type { Post } from "@/domains/posts/types";
+import type { Post } from '@/domains/posts/types'
 
 /**
  * Service layer for Post domain operations
@@ -12,10 +12,10 @@ export class PostService {
    */
   static async fetchPosts(): Promise<Post[]> {
     try {
-      const data = await $fetch<Post[]>("/api/posts");
-      return data;
+      const data = await $fetch<Post[]>('/api/posts')
+      return data
     } catch (err) {
-      throw new Error(`Failed to fetch posts: ${err.message || 'Unknown error'}`);
+      throw new Error(`Failed to fetch posts: ${err.message || 'Unknown error'}`)
     }
   }
 
@@ -26,10 +26,10 @@ export class PostService {
    */
   static async fetchPostById(id: number): Promise<Post | null> {
     try {
-      const posts = await this.fetchPosts();
-      return posts.find(post => post.id === id) || null;
+      const posts = await this.fetchPosts()
+      return posts.find(post => post.id === id) || null
     } catch (error) {
-      throw new Error(`Failed to fetch post ${id}: ${error.message}`);
+      throw new Error(`Failed to fetch post ${id}: ${error.message}`)
     }
   }
 
@@ -40,10 +40,10 @@ export class PostService {
    */
   static async fetchPostsByAuthor(authorUsername: string): Promise<Post[]> {
     try {
-      const posts = await this.fetchPosts();
-      return posts.filter(post => post.author?.username === authorUsername);
+      const posts = await this.fetchPosts()
+      return posts.filter(post => post.author?.username === authorUsername)
     } catch (error) {
-      throw new Error(`Failed to fetch posts by ${authorUsername}: ${error.message}`);
+      throw new Error(`Failed to fetch posts by ${authorUsername}: ${error.message}`)
     }
   }
 
@@ -53,7 +53,7 @@ export class PostService {
    * @returns boolean - Whether the post data is valid
    */
   static validatePost(post: Partial<Post>): boolean {
-    return !!(post.title && post.snippet && post.author);
+    return !!(post.title && post.snippet && post.author)
   }
 
   /**
@@ -63,7 +63,7 @@ export class PostService {
    * @returns string - The excerpt
    */
   static generateExcerpt(content: string, maxLength: number = 150): string {
-    if (content.length <= maxLength) return content;
-    return content.substring(0, maxLength).trim() + "...";
+    if (content.length <= maxLength) return content
+    return content.substring(0, maxLength).trim() + '...'
   }
 }

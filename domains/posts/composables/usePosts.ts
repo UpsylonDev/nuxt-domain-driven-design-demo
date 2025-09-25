@@ -1,5 +1,5 @@
-import type { Post } from "@/domains/posts/types";
-import { PostService } from "@/domains/posts/services/PostService";
+import type { Post } from '@/domains/posts/types'
+import { PostService } from '@/domains/posts/services/PostService'
 
 /**
  * Application Service (Composable) for Posts domain
@@ -7,9 +7,9 @@ import { PostService } from "@/domains/posts/services/PostService";
  * Follows DDD principles by delegating business logic to PostService
  */
 export const usePosts = () => {
-  const posts = useState("posts", (): Post[] => []);
-  const loading = useState("posts-loading", () => false);
-  const error = useState("posts-error", (): string | null => null);
+  const posts = useState('posts', (): Post[] => [])
+  const loading = useState('posts-loading', () => false)
+  const error = useState('posts-error', (): string | null => null)
 
   /**
    * Fetches all posts using the PostService
@@ -17,16 +17,16 @@ export const usePosts = () => {
    */
   async function fetch() {
     try {
-      loading.value = true;
-      error.value = null;
+      loading.value = true
+      error.value = null
 
-      const fetchedPosts = await PostService.fetchPosts();
-      posts.value = fetchedPosts;
+      const fetchedPosts = await PostService.fetchPosts()
+      posts.value = fetchedPosts
     } catch (err) {
-      error.value = err instanceof Error ? err.message : "Failed to fetch posts";
-      console.error("Posts fetch error:", err);
+      error.value = err instanceof Error ? err.message : 'Failed to fetch posts'
+      console.error('Posts fetch error:', err)
     } finally {
-      loading.value = false;
+      loading.value = false
     }
   }
 
@@ -36,7 +36,7 @@ export const usePosts = () => {
    * @returns Post | undefined
    */
   function findPostById(id: number): Post | undefined {
-    return posts.value.find(post => String(post.id) === String(id));
+    return posts.value.find(post => String(post.id) === String(id))
   }
 
   /**
@@ -45,14 +45,14 @@ export const usePosts = () => {
    * @returns Post[] filtered by author
    */
   function getPostsByAuthor(authorUsername: string): Post[] {
-    return posts.value.filter(post => post.author?.username === authorUsername);
+    return posts.value.filter(post => post.author?.username === authorUsername)
   }
 
   /**
    * Gets post count
    * @returns number of posts
    */
-  const postCount = computed(() => posts.value.length);
+  const postCount = computed(() => posts.value.length)
 
   return {
     // State
@@ -67,5 +67,5 @@ export const usePosts = () => {
     fetch,
     findPostById,
     getPostsByAuthor,
-  };
-};
+  }
+}

@@ -18,17 +18,17 @@ export default defineConfig({
         'domains/**/*.spec.ts',
         'domains/setup.ts',
         'domains/**/*.d.ts',
-        'domains/**/nuxt.config.ts'
+        'domains/**/nuxt.config.ts',
       ],
       thresholds: {
         global: {
           branches: 80,
           functions: 80,
           lines: 80,
-          statements: 80
-        }
-      }
-    }
+          statements: 80,
+        },
+      },
+    },
   },
   resolve: {
     alias: {

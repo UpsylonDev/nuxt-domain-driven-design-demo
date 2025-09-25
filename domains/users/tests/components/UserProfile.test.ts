@@ -5,7 +5,11 @@ import type { User } from '@/domains/users/types'
 
 // Mock the getUserInitials utility function
 const getUserInitials = (user: User) => {
-  return user.name.split(' ').map(n => n.charAt(0)).join('').toUpperCase()
+  return user.name
+    .split(' ')
+    .map(n => n.charAt(0))
+    .join('')
+    .toUpperCase()
 }
 
 // Make the function globally available for the component
@@ -15,14 +19,14 @@ describe('UserProfile', () => {
   const mockUser: User = {
     username: 'johndoe',
     name: 'John Doe',
-    email: 'john.doe@example.com'
+    email: 'john.doe@example.com',
   }
 
   it('renders user information correctly', () => {
     const wrapper = mount(UserProfile, {
       props: {
-        user: mockUser
-      }
+        user: mockUser,
+      },
     })
 
     expect(wrapper.text()).toContain('Username: johndoe')
@@ -33,8 +37,8 @@ describe('UserProfile', () => {
   it('displays user initials correctly', () => {
     const wrapper = mount(UserProfile, {
       props: {
-        user: mockUser
-      }
+        user: mockUser,
+      },
     })
 
     expect(wrapper.text()).toContain('initials: JD')
@@ -43,8 +47,8 @@ describe('UserProfile', () => {
   it('applies correct CSS classes', () => {
     const wrapper = mount(UserProfile, {
       props: {
-        user: mockUser
-      }
+        user: mockUser,
+      },
     })
 
     const container = wrapper.find('div')
@@ -57,8 +61,8 @@ describe('UserProfile', () => {
   it('renders all user fields in list format', () => {
     const wrapper = mount(UserProfile, {
       props: {
-        user: mockUser
-      }
+        user: mockUser,
+      },
     })
 
     const listItems = wrapper.findAll('li')

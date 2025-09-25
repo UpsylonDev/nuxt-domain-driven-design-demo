@@ -4,7 +4,7 @@ import { usePosts } from '@/domains/posts/composables/usePosts'
 // Mock the global functions before importing
 vi.mock('#app', () => ({
   useState: vi.fn(),
-  useFetch: vi.fn()
+  useFetch: vi.fn(),
 }))
 
 describe('usePosts', () => {
@@ -21,7 +21,7 @@ describe('usePosts', () => {
       data: { value: [] },
       pending: { value: false },
       error: { value: null },
-      refresh: vi.fn()
+      refresh: vi.fn(),
     }
     global.useFetch = vi.fn().mockReturnValue(mockFetch)
 
@@ -39,7 +39,7 @@ describe('usePosts', () => {
       data: { value: [] },
       pending: { value: false },
       error: { value: null },
-      refresh: vi.fn()
+      refresh: vi.fn(),
     }
     global.useFetch = vi.fn().mockReturnValue(mockFetch)
 
@@ -56,7 +56,7 @@ describe('usePosts', () => {
       data: { value: [] },
       pending: { value: false },
       error: { value: null },
-      refresh: vi.fn()
+      refresh: vi.fn(),
     }
     global.useFetch = vi.fn().mockReturnValue(mockFetch)
 

@@ -1,9 +1,9 @@
-import { faker } from "@faker-js/faker";
-import type { Post } from "@/domains/posts/types";
+import { faker } from '@faker-js/faker'
+import type { Post } from '@/domains/posts/types'
 export default defineEventHandler(async (_event): Promise<Post[]> => {
-  const users = await $fetch("/api/users");
-  const posts = [];
-  const numOfUsers = 50;
+  const users = await $fetch('/api/users')
+  const posts = []
+  const numOfUsers = 50
 
   for (let index = 0; index < numOfUsers; index++) {
     posts.push({
@@ -12,7 +12,7 @@ export default defineEventHandler(async (_event): Promise<Post[]> => {
       snippet: faker.lorem.paragraph(),
       content: faker.lorem.paragraphs(),
       author: users[index],
-    });
+    })
   }
-  return posts;
-});
+  return posts
+})

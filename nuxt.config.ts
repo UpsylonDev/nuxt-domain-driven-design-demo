@@ -2,14 +2,11 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-09-25',
   devtools: { enabled: true },
-  extends: ["./domains/users", "./domains/posts"],
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
+  extends: ['./domains/users', './domains/posts'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
 
   imports: {
-    dirs: [
-      'domains/*/composables/**',
-      'domains/*/utils/**'
-    ]
+    dirs: ['domains/*/composables/**', 'domains/*/utils/**'],
   },
 
   i18n: {
@@ -17,13 +14,13 @@ export default defineNuxtConfig({
       {
         code: 'en',
         name: 'English',
-        file: 'en.json'
+        file: 'en.json',
       },
       {
         code: 'fr',
         name: 'Français',
-        file: 'fr.json'
-      }
+        file: 'fr.json',
+      },
     ],
     defaultLocale: 'fr',
     langDir: 'locales/',
@@ -32,6 +29,6 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: 'i18n_redirected',
       redirectOn: 'root',
-    }
-  }
-});
+    },
+  },
+})

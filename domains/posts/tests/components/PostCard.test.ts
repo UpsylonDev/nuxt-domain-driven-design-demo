@@ -11,15 +11,15 @@ describe('PostCard', () => {
     author: {
       username: 'johndoe',
       name: 'John Doe',
-      email: 'john.doe@example.com'
-    }
+      email: 'john.doe@example.com',
+    },
   }
 
   it('renders post information correctly', () => {
     const wrapper = mount(PostCard, {
       props: {
-        post: mockPost
-      }
+        post: mockPost,
+      },
     })
 
     expect(wrapper.text()).toContain('Test Post Title')
@@ -29,13 +29,13 @@ describe('PostCard', () => {
   it('displays post snippet correctly', () => {
     const mockPostWithSnippet = {
       ...mockPost,
-      snippet: 'This is a test snippet'
+      snippet: 'This is a test snippet',
     }
 
     const wrapper = mount(PostCard, {
       props: {
-        post: mockPostWithSnippet
-      }
+        post: mockPostWithSnippet,
+      },
     })
 
     expect(wrapper.text()).toContain('This is a test snippet')
@@ -44,8 +44,8 @@ describe('PostCard', () => {
   it('displays author information with "By" prefix', () => {
     const wrapper = mount(PostCard, {
       props: {
-        post: mockPost
-      }
+        post: mockPost,
+      },
     })
 
     expect(wrapper.text()).toContain('By John Doe')
@@ -54,8 +54,8 @@ describe('PostCard', () => {
   it('applies correct CSS classes', () => {
     const wrapper = mount(PostCard, {
       props: {
-        post: mockPost
-      }
+        post: mockPost,
+      },
     })
 
     const container = wrapper.find('div')
@@ -68,8 +68,8 @@ describe('PostCard', () => {
   it('has correct HTML structure', () => {
     const wrapper = mount(PostCard, {
       props: {
-        post: mockPost
-      }
+        post: mockPost,
+      },
     })
 
     // Check that we have the basic structure based on the actual component

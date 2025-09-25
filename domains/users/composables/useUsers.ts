@@ -1,5 +1,5 @@
-import type { User } from "@/domains/users/types";
-import { UserService } from "@/domains/users/services/UserService";
+import type { User } from '@/domains/users/types'
+import { UserService } from '@/domains/users/services/UserService'
 
 /**
  * Application Service (Composable) for Users domain
@@ -7,9 +7,9 @@ import { UserService } from "@/domains/users/services/UserService";
  * Follows DDD principles by delegating business logic to UserService
  */
 export const useUsers = () => {
-  const users = useState("users", (): User[] => []);
-  const loading = useState("users-loading", () => false);
-  const error = useState("users-error", (): string | null => null);
+  const users = useState('users', (): User[] => [])
+  const loading = useState('users-loading', () => false)
+  const error = useState('users-error', (): string | null => null)
 
   /**
    * Fetches all users using the UserService
@@ -17,16 +17,16 @@ export const useUsers = () => {
    */
   async function fetch() {
     try {
-      loading.value = true;
-      error.value = null;
+      loading.value = true
+      error.value = null
 
-      const fetchedUsers = await UserService.fetchUsers();
-      users.value = fetchedUsers;
+      const fetchedUsers = await UserService.fetchUsers()
+      users.value = fetchedUsers
     } catch (err) {
-      error.value = err instanceof Error ? err.message : "Failed to fetch users";
-      console.error("Users fetch error:", err);
+      error.value = err instanceof Error ? err.message : 'Failed to fetch users'
+      console.error('Users fetch error:', err)
     } finally {
-      loading.value = false;
+      loading.value = false
     }
   }
 
@@ -36,14 +36,14 @@ export const useUsers = () => {
    * @returns User | undefined
    */
   function findUserByUsername(username: string): User | undefined {
-    return users.value.find(user => user.username === username);
+    return users.value.find(user => user.username === username)
   }
 
   /**
    * Gets user count
    * @returns number of users
    */
-  const userCount = computed(() => users.value.length);
+  const userCount = computed(() => users.value.length)
 
   return {
     // State
@@ -57,5 +57,5 @@ export const useUsers = () => {
     // Actions
     fetch,
     findUserByUsername,
-  };
-};
+  }
+}

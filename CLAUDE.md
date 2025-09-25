@@ -22,12 +22,14 @@ This is a **Domain-Driven Design (DDD)** demonstration project built with Nuxt 4
 ## Testing Commands
 
 ### Unit Tests (Vitest)
+
 - **Run tests**: `pnpm run test` or `pnpm run test:run` (single run)
 - **Watch mode**: `pnpm run test:watch` (watch for changes and re-run)
 - **Coverage**: `pnpm run test:coverage` (generate coverage report)
 - **Coverage watch**: `pnpm run test:coverage:watch` (coverage in watch mode)
 
 Vitest is configured for unit testing Vue components and composables with:
+
 - **Test environment**: happy-dom for DOM simulation
 - **Vue support**: @vue/test-utils for component testing
 - **Global setup**: Vue composables and Nuxt mocks available globally
@@ -36,11 +38,13 @@ Vitest is configured for unit testing Vue components and composables with:
 - **Coverage**: V8 provider with HTML/JSON/text reports, 80% thresholds
 
 ### E2E Tests (Playwright)
+
 - **Run E2E tests**: `pnpm run test:e2e` (headless mode)
 - **Interactive mode**: `pnpm run test:e2e:ui` (Playwright UI mode)
 - **View reports**: `pnpm run test:e2e:report` (HTML test report)
 
 Playwright is configured for end-to-end testing with:
+
 - **Multiple browsers**: Chromium, Firefox, WebKit, Mobile Chrome/Safari
 - **Auto dev server**: Automatically starts Nuxt dev server for tests
 - **Cross-domain testing**: Tests navigation between domain layers
@@ -52,11 +56,14 @@ Playwright is configured for end-to-end testing with:
 This project demonstrates core DDD concepts through practical implementation:
 
 #### **Bounded Contexts**
+
 Each domain represents a bounded context with clear boundaries:
+
 - **Users Domain**: Identity and access management context
 - **Posts Domain**: Content management and publishing context
 
 #### **Domain Layers Structure**
+
 The application uses Nuxt's layer system to enforce domain boundaries:
 
 - **Application Layer** (`nuxt.config.ts`): Orchestrates domain layers and defines application-wide concerns
@@ -65,6 +72,7 @@ The application uses Nuxt's layer system to enforce domain boundaries:
   - `domains/posts/`: Content domain handling blog posts, publishing, and content lifecycle
 
 #### **Strategic Design Patterns**
+
 - **Layer Architecture**: Each domain is implemented as a separate Nuxt layer
 - **Anti-Corruption Layer**: Domain boundaries prevent cross-contamination of business logic
 - **Context Mapping**: Clear relationships defined between Users and Posts domains
@@ -88,6 +96,7 @@ domains/{domain-name}/
 ```
 
 #### **DDD Pattern Mapping**
+
 - **Entities & Value Objects**: Defined in `types.ts` with clear identity and behavior
 - **Domain Services**: Implemented in `utils/` for complex domain logic
 - **Application Services**: Exposed through `composables/` for use case orchestration
@@ -97,6 +106,7 @@ domains/{domain-name}/
 ### DDD Implementation Patterns
 
 #### **Domain Logic Encapsulation**
+
 - **Application Services** (`composables/`): Orchestrate use cases and domain workflows
   - `useUsers()`: Manages user operations and state
   - `usePosts()`: Handles content management workflows
@@ -104,11 +114,13 @@ domains/{domain-name}/
 - **Domain Services** (`utils/`): Implement complex business logic that doesn't belong to entities
 
 #### **Bounded Context Integration**
+
 - **Context Mapping**: Explicit relationships between domains via TypeScript imports
 - **Anti-Corruption Layer**: Type-safe interfaces prevent domain contamination
 - **Shared Kernel**: Common types and utilities shared across contexts when appropriate
 
 #### **Infrastructure Abstraction**
+
 - **Repository Pattern**: API endpoints abstract data persistence concerns
 - **Dependency Inversion**: Domain logic independent of infrastructure details
 - **Interface Segregation**: Clean separation between domain and infrastructure layers
@@ -119,13 +131,14 @@ The project demonstrates proper context mapping between bounded contexts:
 
 ```typescript
 // Posts domain references Users domain (Downstream relationship)
-import type { User } from "@/domains/users/types"
+import type { User } from '@/domains/users/types'
 
 // Clear dependency direction: Posts → Users
 // Users domain remains independent and unaware of Posts
 ```
 
 This pattern shows:
+
 - **Customer-Supplier**: Posts domain consumes User types as a downstream client
 - **Conformist Pattern**: Posts accepts Users domain model without modification
 - **Published Language**: Users domain provides stable interfaces for other contexts

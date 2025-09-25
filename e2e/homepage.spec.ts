@@ -5,7 +5,9 @@ test.describe('Homepage', () => {
     await page.goto('/')
 
     // Check if the main title is visible
-    await expect(page.getByRole('heading', { level: 1 })).toContainText('Domain Driven Design - Example with Nuxt Layers')
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(
+      'Domain Driven Design - Example with Nuxt Layers'
+    )
   })
 
   test('should have navigation menu with correct links', async ({ page }) => {

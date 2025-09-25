@@ -1,0 +1,28 @@
+# Build outputs
+.output
+.nuxt
+dist
+coverage
+
+# Dependencies
+node_modules
+
+# Generated files
+.nitro
+.cache
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode
+.idea
+
+# Logs
+*.log
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

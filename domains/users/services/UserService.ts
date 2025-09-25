@@ -1,4 +1,4 @@
-import type { User } from "@/domains/users/types";
+import type { User } from '@/domains/users/types'
 
 /**
  * Service layer for User domain operations
@@ -12,11 +12,11 @@ export class UserService {
    */
   static async fetchUsers(): Promise<User[]> {
     try {
-      const data = await $fetch<User[]>("/api/users");
-      return data;
+      const data = await $fetch<User[]>('/api/users')
+      return data
     } catch (err) {
-      const message = (err instanceof Error) ? err.message : 'Unknown error';
-      throw new Error(`Failed to fetch users: ${message}`);
+      const message = err instanceof Error ? err.message : 'Unknown error'
+      throw new Error(`Failed to fetch users: ${message}`)
     }
   }
 
@@ -27,11 +27,11 @@ export class UserService {
    */
   static async fetchUserByUsername(username: string): Promise<User | null> {
     try {
-      const users = await this.fetchUsers();
-      return users.find(user => user.username === username) || null;
+      const users = await this.fetchUsers()
+      return users.find(user => user.username === username) || null
     } catch (error) {
-      const message = (error instanceof Error) ? error.message : 'Unknown error';
-      throw new Error(`Failed to fetch user ${username}: ${message}`);
+      const message = error instanceof Error ? error.message : 'Unknown error'
+      throw new Error(`Failed to fetch user ${username}: ${message}`)
     }
   }
 
@@ -41,6 +41,6 @@ export class UserService {
    * @returns boolean - Whether the user data is valid
    */
   static validateUser(user: Partial<User>): boolean {
-    return !!(user.username && user.name && user.email);
+    return !!(user.username && user.name && user.email)
   }
 }

@@ -10,7 +10,7 @@ global.reactive = reactive
 // Mock Nuxt's useState composable for testing
 global.useState = vi.fn((key: string, init?: () => unknown) => {
   return {
-    value: init ? init() : null
+    value: init ? init() : null,
   }
 })
 
@@ -20,11 +20,15 @@ global.useFetch = vi.fn((_url: string) => {
     data: { value: null },
     pending: { value: false },
     error: { value: null },
-    refresh: vi.fn()
+    refresh: vi.fn(),
   }
 })
 
 // Mock getUserInitials utility function
 global.getUserInitials = vi.fn((user: { name: string }) => {
-  return user.name.split(' ').map((n: string) => n.charAt(0)).join('').toUpperCase()
+  return user.name
+    .split(' ')
+    .map((n: string) => n.charAt(0))
+    .join('')
+    .toUpperCase()
 })

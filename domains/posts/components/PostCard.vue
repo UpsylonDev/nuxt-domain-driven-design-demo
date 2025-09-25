@@ -1,16 +1,24 @@
 <script setup lang="ts">
-import type { Post } from "@/domains/posts/types";
+import type { Post } from '@/domains/posts/types'
 
 defineProps<{
-  post: Post;
-}>();
+  post: Post
+}>()
 
-const { t } = useI18n();
+const { t } = useI18n()
 </script>
+
 <template>
+
   <div class="bg-gray-100 p-2 rounded mb-5">
+
     <h2 class="text-lg font-bold">{{ post.title }}</h2>
+
     <p>{{ t('posts.author') }}: {{ post.author?.name }}</p>
+
     <p>{{ post.snippet }}</p>
+
   </div>
+
 </template>
+

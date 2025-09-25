@@ -65,33 +65,34 @@ Each domain represents an independent bounded context:
 
 ### DDD Patterns in Nuxt
 
-| DDD Pattern | Nuxt Implementation |
-|-------------|-------------------|
+| DDD Pattern                  | Nuxt Implementation                        |
+| ---------------------------- | ------------------------------------------ |
 | **Entities & Value Objects** | `types.ts` - Domain models with TypeScript |
-| **Domain Services** | `utils/` - Pure business logic |
-| **Application Services** | `composables/` - Use case orchestration |
-| **Repositories** | `server/api/` - Data access abstraction |
-| **Anti-Corruption Layer** | Type-safe domain boundaries |
-| **Context Mapping** | Explicit type imports between domains |
+| **Domain Services**          | `utils/` - Pure business logic             |
+| **Application Services**     | `composables/` - Use case orchestration    |
+| **Repositories**             | `server/api/` - Data access abstraction    |
+| **Anti-Corruption Layer**    | Type-safe domain boundaries                |
+| **Context Mapping**          | Explicit type imports between domains      |
 
 ### Domain Relationships
 
 ```typescript
 // Clear dependency direction: Posts → Users
 // Posts domain can reference Users, but not vice versa
-import type { User } from "@/domains/users/types"
+import type { User } from '@/domains/users/types'
 
 interface Post {
   id: string
   title: string
   content: string
-  author: User  // Downstream dependency
+  author: User // Downstream dependency
 }
 ```
 
 ## 🧪 Testing Strategy
 
 ### Unit Tests (Vitest)
+
 ```bash
 pnpm run test                # Run all tests
 pnpm run test:watch          # Watch mode
@@ -99,6 +100,7 @@ pnpm run test:coverage       # Coverage report
 ```
 
 ### E2E Tests (Playwright)
+
 ```bash
 pnpm run test:e2e           # Run E2E tests
 pnpm run test:e2e:ui        # Interactive mode
@@ -110,12 +112,14 @@ pnpm run test:e2e:report    # View reports
 ### Adding a New Domain
 
 1. **Create domain layer structure**:
+
 ```bash
 mkdir domains/new-domain
 cd domains/new-domain
 ```
 
 2. **Add domain configuration**:
+
 ```typescript
 // domains/new-domain/nuxt.config.ts
 export default defineNuxtConfig({
@@ -124,14 +128,15 @@ export default defineNuxtConfig({
 ```
 
 3. **Register in application**:
+
 ```typescript
 // nuxt.config.ts
 export default defineNuxtConfig({
   extends: [
     './domains/users',
     './domains/posts',
-    './domains/new-domain'  // Add here
-  ]
+    './domains/new-domain', // Add here
+  ],
 })
 ```
 
@@ -141,10 +146,10 @@ Domains communicate through well-defined interfaces:
 
 ```typescript
 // ✅ Allowed: Type-only imports
-import type { User } from "@/domains/users/types"
+import type { User } from '@/domains/users/types'
 
 // ❌ Avoid: Direct implementation coupling
-import { useUsers } from "@/domains/users/composables"
+import { useUsers } from '@/domains/users/composables'
 ```
 
 ## 🎨 Technology Stack
@@ -158,37 +163,41 @@ import { useUsers } from "@/domains/users/composables"
 ## 📚 Key Benefits
 
 ### ✅ Domain Isolation
+
 - Clear boundaries between business contexts
 - Independent development and deployment
 - Reduced coupling and dependencies
 
 ### ✅ Scalability
+
 - Add new domains without affecting existing ones
 - Team ownership of specific domains
 - Parallel development capabilities
 
 ### ✅ Maintainability
+
 - Ubiquitous language reflected in code
 - Business logic centralized in domain layers
 - Clear separation of concerns
 
 ### ✅ Type Safety
+
 - End-to-end TypeScript support
 - Compile-time validation of domain contracts
 - Safe refactoring across domain boundaries
 
 ## 🔧 Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `pnpm run dev` | Start development server |
-| `pnpm run build` | Build for production |
-| `pnpm run preview` | Preview production build |
-| `pnpm run generate` | Generate static site |
-| `pnpm run test` | Run unit tests |
-| `pnpm run test:e2e` | Run E2E tests |
-| `pnpm run lint` | Lint code |
-| `pnpm run typecheck` | Type checking |
+| Command              | Description              |
+| -------------------- | ------------------------ |
+| `pnpm run dev`       | Start development server |
+| `pnpm run build`     | Build for production     |
+| `pnpm run preview`   | Preview production build |
+| `pnpm run generate`  | Generate static site     |
+| `pnpm run test`      | Run unit tests           |
+| `pnpm run test:e2e`  | Run E2E tests            |
+| `pnpm run lint`      | Lint code                |
+| `pnpm run typecheck` | Type checking            |
 
 ## 📖 Learning Resources
 
