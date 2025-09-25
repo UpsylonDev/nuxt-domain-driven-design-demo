@@ -32,3 +32,17 @@ global.getUserInitials = vi.fn((user: { name: string }) => {
     .join('')
     .toUpperCase()
 })
+
+// Mock useI18n composable for testing
+global.useI18n = vi.fn(() => ({
+  t: vi.fn((key: string) => {
+    const translations = {
+      'posts.author': 'By',
+      'users.name': 'Name',
+      'users.email': 'Email',
+    }
+    return translations[key] || key
+  }),
+  locale: ref('en'),
+  locales: ['en', 'fr'],
+}))

@@ -391,7 +391,7 @@ class ProjectAnalyzer {
           if (found) return true
         }
       }
-    } catch (error) {
+    } catch {
       // Ignore permission errors
     }
 

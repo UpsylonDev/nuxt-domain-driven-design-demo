@@ -10,7 +10,8 @@
       "Bash(pnpm run dev:*)",
       "WebFetch(domain:localhost)",
       "Bash(pnpm run lint:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(pnpm test:*)"
     ],
     "deny": [],
     "ask": []

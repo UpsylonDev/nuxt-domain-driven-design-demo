@@ -48,7 +48,7 @@ describe('PostCard', () => {
       },
     })
 
-    expect(wrapper.text()).toContain('By John Doe')
+    expect(wrapper.text()).toContain('By: John Doe')
   })
 
   it('applies correct CSS classes', () => {

@@ -56,9 +56,9 @@ export const usePosts = () => {
 
   return {
     // State
-    posts: readonly(posts),
-    loading: readonly(loading),
-    error: readonly(error),
+    posts: posts,
+    loading: loading,
+    error: error,
 
     // Computed
     postCount,

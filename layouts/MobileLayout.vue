@@ -10,13 +10,13 @@
            <NuxtLink to="/" class="text-lg font-bold text-gray-900"> DDD Demo </NuxtLink>
           <div class="flex items-center space-x-3">
              <!-- Language Switcher - Mobile optimized --> <button
-              @click="toggleLanguageMenu"
               class="bg-gray-100 rounded-full p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              @click="toggleLanguageMenu"
             >
                <span v-if="$i18n.locale === 'fr'">🇫🇷</span> <span v-else>🇺🇸</span> </button
             > <!-- Menu toggle --> <button
-              @click="toggleMenu"
               class="p-2 rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              @click="toggleMenu"
             >
                <svg
                 class="h-5 w-5"
@@ -61,15 +61,15 @@
         class="absolute top-full right-4 mt-1 bg-white rounded-md shadow-lg border border-gray-200 z-50"
       >
          <button
-          @click="switchLanguage('fr')"
           class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-t-md"
           :class="{ 'bg-blue-50 text-blue-600': $i18n.locale === 'fr' }"
+          @click="switchLanguage('fr')"
         >
            🇫🇷 Français </button
         > <button
-          @click="switchLanguage('en')"
           class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-b-md"
           :class="{ 'bg-blue-50 text-blue-600': $i18n.locale === 'en' }"
+          @click="switchLanguage('en')"
         >
            🇺🇸 English </button
         >
@@ -80,7 +80,7 @@
         :class="{ 'translate-x-0': menuOpen, 'translate-x-full': !menuOpen }"
       >
 
-        <div class="absolute inset-0 bg-black bg-opacity-50" @click="closeMenu"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-50" @click="closeMenu"/>
 
         <div class="absolute right-0 top-0 h-full w-64 bg-white shadow-xl">
 
@@ -181,8 +181,8 @@
              </svg
           > {{ $t('navigation.posts') }} </NuxtLink
         > <button
-          @click="toggleMenu"
           class="flex flex-col items-center py-2 px-4 text-xs font-medium text-gray-500 hover:text-gray-700 transition-colors"
+          @click="toggleMenu"
         >
            <svg class="h-5 w-5 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 

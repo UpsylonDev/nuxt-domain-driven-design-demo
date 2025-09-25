@@ -2,7 +2,7 @@ export default defineNuxtPlugin(() => {
   const { $router } = useNuxtApp()
 
   const detectMobileDevice = (): boolean => {
-    if (process.server) return false
+    if (import.meta.server) return false
 
     const userAgent = navigator.userAgent || navigator.vendor
     const screenWidth = window.innerWidth

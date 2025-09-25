@@ -47,9 +47,9 @@ export const useUsers = () => {
 
   return {
     // State
-    users: readonly(users),
-    loading: readonly(loading),
-    error: readonly(error),
+    users: users,
+    loading: loading,
+    error: error,
 
     // Computed
     userCount,
