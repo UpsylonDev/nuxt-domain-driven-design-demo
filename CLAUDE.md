@@ -19,6 +19,13 @@ This is a **Domain-Driven Design (DDD)** demonstration project built with Nuxt 4
 - **Preview production build**: `pnpm run preview`
 - **Generate static site**: `pnpm run generate`
 
+### Code Quality & Formatting
+
+- **Lint**: `pnpm run lint` (check for linting errors)
+- **Lint fix**: `pnpm run lint:fix` (automatically fix linting errors)
+- **Format**: `pnpm run format` (format all files with Prettier)
+- **Format check**: `pnpm run format:check` (check if files are properly formatted)
+
 ## Testing Commands
 
 ### Unit Tests (Vitest)
@@ -150,3 +157,18 @@ This pattern shows:
 - **Dev Tools**: Nuxt DevTools enabled
 - **Data Generation**: @faker-js/faker for mock data
 - **TypeScript**: Full TypeScript support with domain-specific types
+
+### Code Quality Tools
+
+- **Prettier**: Code formatting with Vue.js plugin support
+  - Configured with lint-staged for automatic formatting on commit
+  - Formats JavaScript, TypeScript, Vue, JSON, and Markdown files
+- **ESLint**: Code linting with Nuxt and TypeScript configurations
+  - Uses @nuxt/eslint-config for Nuxt-specific rules
+  - Integrates with @nuxtjs/eslint-config-typescript for TypeScript support
+- **Husky**: Git hooks management
+  - Pre-commit hook: Runs `pnpm lint && pnpm test` before commits
+  - Ensures code quality and test coverage before changes are committed
+- **lint-staged**: Runs tools on staged files only
+  - Automatically fixes ESLint errors and formats with Prettier on commit
+  - Optimizes performance by processing only changed files
