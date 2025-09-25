@@ -9,7 +9,8 @@
       "Bash(npx playwright:*)",
       "Bash(pnpm run dev:*)",
       "WebFetch(domain:localhost)",
-      "Bash(pnpm run lint:*)"
+      "Bash(pnpm run lint:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
