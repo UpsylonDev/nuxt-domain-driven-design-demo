@@ -1,0 +1,66 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "error": "Error",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "language": "Language"
+  },
+  "navigation": {
+    "home": "Home",
+    "users": "Users",
+    "posts": "Posts"
+  },
+  "users": {
+    "title": "User Management",
+    "list": "User List",
+    "create": "Create User",
+    "edit": "Edit User",
+    "profile": "Profile",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at",
+    "noUsers": "No users found",
+    "userCreated": "User created successfully",
+    "userUpdated": "User updated successfully",
+    "userDeleted": "User deleted successfully"
+  },
+  "posts": {
+    "title": "Post Management",
+    "list": "Post List",
+    "create": "Create Post",
+    "edit": "Edit Post",
+    "publish": "Publish",
+    "draft": "Draft",
+    "published": "Published",
+    "title_field": "Title",
+    "content": "Content",
+    "author": "Author",
+    "status": "Status",
+    "publishedAt": "Published at",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at",
+    "noPosts": "No posts found",
+    "postCreated": "Post created successfully",
+    "postUpdated": "Post updated successfully",
+    "postDeleted": "Post deleted successfully"
+  },
+  "ddd": {
+    "title": "Domain-Driven Design with Nuxt 4",
+    "subtitle": "Practical demonstration of DDD principles",
+    "boundedContexts": "Bounded Contexts",
+    "domainLayers": "Domain Layers",
+    "strategicDesign": "Strategic Design",
+    "tacticalPatterns": "Tactical Patterns"
+  }
+}

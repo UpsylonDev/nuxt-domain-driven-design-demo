@@ -1,0 +1,66 @@
+{
+  "common": {
+    "welcome": "Bienvenue",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "save": "Sauvegarder",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer",
+    "search": "Rechercher",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "language": "Langue"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "users": "Utilisateurs",
+    "posts": "Articles"
+  },
+  "users": {
+    "title": "Gestion des Utilisateurs",
+    "list": "Liste des Utilisateurs",
+    "create": "Créer un Utilisateur",
+    "edit": "Modifier l'Utilisateur",
+    "profile": "Profil",
+    "name": "Nom",
+    "email": "Email",
+    "role": "Rôle",
+    "createdAt": "Créé le",
+    "updatedAt": "Modifié le",
+    "noUsers": "Aucun utilisateur trouvé",
+    "userCreated": "Utilisateur créé avec succès",
+    "userUpdated": "Utilisateur modifié avec succès",
+    "userDeleted": "Utilisateur supprimé avec succès"
+  },
+  "posts": {
+    "title": "Gestion des Articles",
+    "list": "Liste des Articles",
+    "create": "Créer un Article",
+    "edit": "Modifier l'Article",
+    "publish": "Publier",
+    "draft": "Brouillon",
+    "published": "Publié",
+    "title_field": "Titre",
+    "content": "Contenu",
+    "author": "Auteur",
+    "status": "Statut",
+    "publishedAt": "Publié le",
+    "createdAt": "Créé le",
+    "updatedAt": "Modifié le",
+    "noPosts": "Aucun article trouvé",
+    "postCreated": "Article créé avec succès",
+    "postUpdated": "Article modifié avec succès",
+    "postDeleted": "Article supprimé avec succès"
+  },
+  "ddd": {
+    "title": "Domain-Driven Design avec Nuxt 4",
+    "subtitle": "Démonstration pratique des principes DDD",
+    "boundedContexts": "Contextes Délimités",
+    "domainLayers": "Couches de Domaine",
+    "strategicDesign": "Conception Stratégique",
+    "tacticalPatterns": "Patterns Tactiques"
+  }
+}
