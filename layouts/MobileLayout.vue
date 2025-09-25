@@ -80,7 +80,7 @@
         :class="{ 'translate-x-0': menuOpen, 'translate-x-full': !menuOpen }"
       >
 
-        <div class="absolute inset-0 bg-black bg-opacity-50" @click="closeMenu"/>
+        <div class="absolute inset-0 bg-black bg-opacity-50" @click="closeMenu" />
 
         <div class="absolute right-0 top-0 h-full w-64 bg-white shadow-xl">
 
@@ -273,3 +273,4 @@ onMounted(() => {
   }
 }
 </style>
+

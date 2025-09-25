@@ -27,3 +27,4 @@ const switchLanguage = (code: string) => {
   </div>
 
 </template>
+
