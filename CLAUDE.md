@@ -13,6 +13,32 @@ This is a Nuxt 4 application demonstrating Domain-Driven Design (DDD) architectu
 - **Preview production build**: `npm run preview` or `pnpm run preview`
 - **Generate static site**: `npm run generate` or `pnpm run generate`
 
+## Testing Commands
+
+### Unit Tests (Vitest)
+- **Run tests**: `npm run test` or `npm run test:run` (single run)
+- **Watch mode**: `npm run test:watch` (watch for changes and re-run)
+- **Coverage**: `npm run test:coverage` (generate coverage report)
+- **Coverage watch**: `npm run test:coverage:watch` (coverage in watch mode)
+
+Vitest is configured for unit testing Vue components and composables with:
+- **Test environment**: happy-dom for DOM simulation
+- **Vue support**: @vue/test-utils for component testing
+- **Global setup**: Vue composables and Nuxt mocks available globally
+- **Domain-based tests**: Tests are located in each domain's `tests/` directory
+- **Test pattern**: `domains/**/*.test.ts` - tests are co-located with domain logic
+- **Coverage**: V8 provider with HTML/JSON/text reports, 80% thresholds
+
+### E2E Tests (Playwright)
+- **Run E2E tests**: `npm run test:e2e` (headless mode)
+- **Interactive mode**: `npm run test:e2e:ui` (Playwright UI mode)
+- **View reports**: `npm run test:e2e:report` (HTML test report)
+
+Playwright is configured for end-to-end testing with:
+- **Multiple browsers**: Chromium, Firefox, WebKit, Mobile Chrome/Safari
+- **Auto dev server**: Automatically starts Nuxt dev server for tests
+- **Cross-domain testing**: Tests navigation between domain layers
+
 ## Architecture & Structure
 
 ### Domain-Driven Design with Nuxt Layers
@@ -34,6 +60,9 @@ domains/{domain-name}/
 ├── composables/         # Domain composables (useUsers, usePosts)
 ├── pages/{domain}/      # Domain routes (auto-routed by Nuxt)
 ├── server/api/          # Domain API endpoints
+├── tests/               # Domain unit tests
+│   ├── components/      # Component tests
+│   └── composables/     # Composable tests
 ├── types.ts             # Domain type definitions
 ├── utils/               # Domain utilities
 └── nuxt.config.ts       # Domain-specific Nuxt configuration
