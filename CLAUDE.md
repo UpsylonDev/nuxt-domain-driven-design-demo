@@ -4,7 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Nuxt 4 application demonstrating Domain-Driven Design (DDD) architecture using Nuxt Layers. The project showcases how to organize code into discrete domains while maintaining modularity and separation of concerns.
+This is a **Domain-Driven Design (DDD)** demonstration project built with Nuxt 4. The architecture implements DDD principles through Nuxt's layer system, showcasing:
+
+- **Domain Boundaries**: Clear separation of business domains with dedicated layers
+- **Ubiquitous Language**: Domain-specific terminology reflected in code structure
+- **Bounded Contexts**: Each domain operates as an independent bounded context
+- **Separation of Concerns**: Business logic isolated within domain boundaries
+- **Modular Architecture**: Self-contained domains that can evolve independently
 
 ## Development Commands
 
@@ -39,47 +45,90 @@ Playwright is configured for end-to-end testing with:
 - **Auto dev server**: Automatically starts Nuxt dev server for tests
 - **Cross-domain testing**: Tests navigation between domain layers
 
-## Architecture & Structure
+## Domain-Driven Design Architecture
 
-### Domain-Driven Design with Nuxt Layers
+### DDD Principles Implementation
 
-The application uses Nuxt's layer system to implement domain boundaries. Each domain is a self-contained Nuxt layer with its own configuration:
+This project demonstrates core DDD concepts through practical implementation:
 
-- **Root Layer** (`nuxt.config.ts`): Main application that extends domain layers
-- **Domains Directory** (`domains/`): Contains individual domain layers
-  - `domains/users/`: User management domain
-  - `domains/posts/`: Blog post/content domain
+#### **Bounded Contexts**
+Each domain represents a bounded context with clear boundaries:
+- **Users Domain**: Identity and access management context
+- **Posts Domain**: Content management and publishing context
 
-### Domain Structure
+#### **Domain Layers Structure**
+The application uses Nuxt's layer system to enforce domain boundaries:
 
-Each domain follows a consistent structure:
+- **Application Layer** (`nuxt.config.ts`): Orchestrates domain layers and defines application-wide concerns
+- **Domain Layers** (`domains/`): Independent bounded contexts implementing domain logic
+  - `domains/users/`: User management domain with authentication, profiles, and user operations
+  - `domains/posts/`: Content domain handling blog posts, publishing, and content lifecycle
+
+#### **Strategic Design Patterns**
+- **Layer Architecture**: Each domain is implemented as a separate Nuxt layer
+- **Anti-Corruption Layer**: Domain boundaries prevent cross-contamination of business logic
+- **Context Mapping**: Clear relationships defined between Users and Posts domains
+
+### Domain Structure (DDD Tactical Patterns)
+
+Each domain follows DDD tactical patterns implemented through Nuxt conventions:
 
 ```
 domains/{domain-name}/
-├── components/          # Domain-specific Vue components
-├── composables/         # Domain composables (useUsers, usePosts)
-├── pages/{domain}/      # Domain routes (auto-routed by Nuxt)
-├── server/api/          # Domain API endpoints
-├── tests/               # Domain unit tests
-│   ├── components/      # Component tests
-│   └── composables/     # Composable tests
-├── types.ts             # Domain type definitions
-├── utils/               # Domain utilities
-└── nuxt.config.ts       # Domain-specific Nuxt configuration
+├── components/          # UI Layer - Domain-specific Vue components (Views/Presenters)
+├── composables/         # Application Services - Domain logic orchestration (useUsers, usePosts)
+├── pages/{domain}/      # Interface Layer - Domain routes and entry points
+├── server/api/          # Infrastructure Layer - External interfaces and data access
+├── tests/               # Domain Testing - Unit tests for domain logic
+│   ├── components/      # UI Layer tests
+│   └── composables/     # Application Service tests
+├── types.ts             # Domain Model - Entities, Value Objects, and Domain Types
+├── utils/               # Domain Services - Pure domain logic utilities
+└── nuxt.config.ts       # Domain Configuration - Bounded context setup
 ```
 
-### Key Patterns
+#### **DDD Pattern Mapping**
+- **Entities & Value Objects**: Defined in `types.ts` with clear identity and behavior
+- **Domain Services**: Implemented in `utils/` for complex domain logic
+- **Application Services**: Exposed through `composables/` for use case orchestration
+- **Repositories**: Simulated through API endpoints in `server/api/`
+- **Domain Events**: Handled through Nuxt's reactive state management
 
-- **Composables**: Each domain provides composables (e.g., `useUsers()`, `usePosts()`) that encapsulate domain logic and state management using Nuxt's `useState`
-- **Type Safety**: TypeScript interfaces defined in `types.ts` with cross-domain imports (Posts reference User types)
-- **API Integration**: Domain composables use `useFetch` to call domain-specific API endpoints
-- **Route Configuration**: Domain layers can define custom route rules (e.g., `/blog` redirects to `/posts`)
+### DDD Implementation Patterns
 
-### Cross-Domain Communication
+#### **Domain Logic Encapsulation**
+- **Application Services** (`composables/`): Orchestrate use cases and domain workflows
+  - `useUsers()`: Manages user operations and state
+  - `usePosts()`: Handles content management workflows
+- **Domain Models** (`types.ts`): Define entities with clear identity and business rules
+- **Domain Services** (`utils/`): Implement complex business logic that doesn't belong to entities
 
-Domains can reference each other through type imports:
-- Posts domain imports User types: `import type { User } from "@/domains/users/types"`
-- This demonstrates how domains can have dependencies while maintaining clear boundaries
+#### **Bounded Context Integration**
+- **Context Mapping**: Explicit relationships between domains via TypeScript imports
+- **Anti-Corruption Layer**: Type-safe interfaces prevent domain contamination
+- **Shared Kernel**: Common types and utilities shared across contexts when appropriate
+
+#### **Infrastructure Abstraction**
+- **Repository Pattern**: API endpoints abstract data persistence concerns
+- **Dependency Inversion**: Domain logic independent of infrastructure details
+- **Interface Segregation**: Clean separation between domain and infrastructure layers
+
+### Domain Relationships & Context Mapping
+
+The project demonstrates proper context mapping between bounded contexts:
+
+```typescript
+// Posts domain references Users domain (Downstream relationship)
+import type { User } from "@/domains/users/types"
+
+// Clear dependency direction: Posts → Users
+// Users domain remains independent and unaware of Posts
+```
+
+This pattern shows:
+- **Customer-Supplier**: Posts domain consumes User types as a downstream client
+- **Conformist Pattern**: Posts accepts Users domain model without modification
+- **Published Language**: Users domain provides stable interfaces for other contexts
 
 ## Technology Stack
 
